@@ -1,4 +1,4 @@
-git_url:                    https://github.com/kili/dashboard.git
+git_url:                    https://github.com/adamn/dashboard.git
 git_branch:                 master
 virtualenv_executable:      /usr/bin/virtualenv
 codebase_path:              /opt/horizon

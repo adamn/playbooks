@@ -1,5 +1,0 @@
----
-- include: mysql.yaml
-- include: rabbitmq.yaml
-- include: keystone.yaml
-- include: heat.yaml

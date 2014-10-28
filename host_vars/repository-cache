@@ -28,11 +28,6 @@ proxy_next_upstream:
 mirrors:
   - name: "ubuntu"
     dists: 
-      - precise
-      - precise-backports
-      - precise-proposed
-      - precise-security
-      - precise-updates
       - trusty
       - trusty-backports
       - trusty-proposed

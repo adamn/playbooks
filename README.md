@@ -2,13 +2,8 @@
 
 This repository contains script that will deploy OpenStack into Vagrant virtual
 machines. These scripts are based on the [Official OpenStack
-Docmentation](http://docs.openstack.org/), havana release, except where
+Docmentation](http://docs.openstack.org/), except where
 otherwise noted.
-
-See also [Vagrant, Ansible and OpenStack on your laptop]
-(http://www.slideshare.net/lorinh/vagrant-ansible-and-openstack-on-your-laptop)
-on SlideShare, though this refers to a much older version of this repo and so is 
-now out of date.
 
 ## Install prereqs
 
@@ -29,7 +24,7 @@ variables, no other installation is required:
 	source ./hacking/env-setup
 
 
-## Get an Ubuntu 12.04 (precise) Vagrant box
+## Get an Ubuntu 14.04 (precise) box
 
 Download a 64-bit Ubuntu Vagrant box:
 
@@ -40,7 +35,7 @@ Download a 64-bit Ubuntu Vagrant box:
 This repository uses a submodule that contains some custom Ansible modules for
 OpenStack, so there's an extra command required after cloning the repo:
 
-    git clone http://github.com/openstack-ansible/openstack-ansible.git
+    git clone http://github.com/adamn/playbooks.git
     cd openstack-ansible
     git submodule update --init
 
