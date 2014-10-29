@@ -1,5 +1,5 @@
-admin-host ansible_ssh_host=192.168.11.201
-main1 ansible_ssh_host=192.168.11.4
+# admin-host ansible_ssh_host=192.168.11.201
+main1 ansible_ssh_host=198.16.4.202
 
 [all:vars]
 env_name = staging
@@ -75,7 +75,7 @@ main1
 [neutron:children]
 neutron-api
 neutron-network
-nova-compute
+# nova-compute
 
 [neutron-api]
 main1
