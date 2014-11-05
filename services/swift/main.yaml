@@ -1,5 +1,5 @@
 ---
-- include: mysql.yaml
+# - include: mysql.yaml
 - include: keystone.yaml
 - include: swift-proxy-1.yaml
 - include: swift-storage-1.yaml

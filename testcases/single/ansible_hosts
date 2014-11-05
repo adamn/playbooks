@@ -1,53 +1,22 @@
-# admin-host ansible_ssh_host=10.1.0.3 #192.168.11.201
-# main1 ansible_ssh_host=10.0.1.222
-main1 ansible_ssh_host=10.1.0.3
+main1 ansible_ssh_host=10.1.0.4
 
 [all:vars]
-env_name = localhost
-api_network = 10.0.2.0/24
-public_domain = 10.0.1.222
-pub_url_proto = http
-# papertrail_min_loglevel = warning
-horizon_min_loglevel = INFO
-
 external_ntp_host = uk.pool.ntp.org
-management_network = 10.0.1.0/24
+
+management_network = 10.1.0.0/16
 api_network = 10.2.0.0/16
+
 external_network_name = public
-public_web_address = 10.0.1.222
-public_api_address = 10.0.1.223
-# graphite_carbon_udp_endpoint = 127.0.0.1
-# graphite_web_port = 1281
 
-[openstack-hosts]
-main1
-
-[horizon-hosts]
-main1
-
-[collectd-hosts]
-main1
-
-[graphite-hosts]
-main1
-
-[frontend_nginx:children]
-webif_nginx
-api_nginx
-
-[webif_nginx]
-main1
-
-[api_nginx]
-main1
+# public_address = dash.kili.io
 
 [neutron:vars]
 data_network = 10.3.0.0/16
-external_network = 10.0.1.0/24
-external_network_gateway_ip = 10.0.2.2
+external_network = 154.72.0.0/22
+external_network_gateway_ip = 154.72.0.1
 external_network_dns_nameservers = 8.8.8.8
-external_network_allocation_pool_start = 10.0.1.230
-external_network_allocation_pool_end = 10.0.1.240
+external_network_allocation_pool_start = 154.72.0.10
+external_network_allocation_pool_end = 154.72.0.254
 
 # [swift:vars]
 # storage_network = 10.5.0.0/16
@@ -56,8 +25,8 @@ external_network_allocation_pool_end = 10.0.1.240
 [mysql]
 main1
 
-[mongodb]
-main1
+# [mongodb]
+# main1
 
 [rabbitmq]
 main1
@@ -100,7 +69,7 @@ main1
 # main1
 
 # [swift-storage]
-# main1
+# compute
 
 # [cinder:children]
 # cinder-api
@@ -114,7 +83,7 @@ main1
 # main1
 
 # [cinder-volume]
-# main1
+# compute
 
 [dashboard]
 main1
@@ -131,3 +100,4 @@ main1
 
 [frontend]
 main1
+

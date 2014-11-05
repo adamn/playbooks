@@ -6,7 +6,7 @@
 - include: system.yaml
 - include: hostname.yaml
 - include: apticron.yaml
-- include: postfix.yaml
+# - include: postfix.yaml
 - include: rsync.yaml
-- include: papertrail.yaml
+# - include: papertrail.yaml
 - include: lvm2_mdadm.yaml

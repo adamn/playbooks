@@ -1,5 +1,5 @@
 ---
 - include: dashboard.yaml
-- include: mysql.yaml
+# - include: mysql.yaml
 - include: rabbitmq.yaml
 - include: celery.yaml

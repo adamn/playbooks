@@ -1,5 +1,5 @@
 - include: services/base_environment/main.yaml
-- include: services/admin-host/main.yaml
+#- include: services/admin-host/main.yaml
 - include: services/networking/main.yaml
 - include: services/common/main.yaml
 - include: services/keystone/main.yaml
