@@ -97,6 +97,9 @@
       with_items:
         - openvswitch-datapath-dkms
 
+    - name: ensure neutron database is populated
+      shell: neutron-db-manage --config-file /etc/neutron/neutron.conf --config-file /etc/neutron/plugins/ml2/ml2_conf.ini upgrade juno
+
     # apparently this needs a restart when the module is built...
     - name: ensure openvswitch-switch is started and enabled
       service: 

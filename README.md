@@ -66,10 +66,9 @@ The hosts for the standard configuration are:
  * 10.1.0.5 (the swift storage host)
 
 You should be able to ssh to these VMs (username: `vagrant`, password:
-`vagrant`). You can also authenticate  with the vagrant private key, which is
-included here as the file `vagrant_private_key` (NOTE: git does not manage file
-permissions, these must be set to using "chmod 0600 vagrant_private_key" or ssh
-and ansible will fail with an error).
+`vagrant`). You can also authenticate  with the vagrant private key:
+
+`ssh-add ~/.vagrant.d/insecure_private_key`
 
 ## Interacting with your cloud
 

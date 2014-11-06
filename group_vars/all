@@ -62,15 +62,15 @@ keystone_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/keystone/v2
 
 keystone_admin_token: "{{ lookup('password', inventory_dir + '/credentials/keystone-admin-token') }}"
 
-# glance_endpoint_host: "{{ hostvars[groups['glance'][0]]|find_ip(management_network) }}"
-# glance_internal_url: http://{{ glance_endpoint_host }}:9292 
-# glance_admin_url: "{{ glance_internal_url }}"
-# glance_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/glance"
+glance_endpoint_host: "{{ hostvars[groups['glance'][0]]|find_ip(management_network) }}"
+glance_internal_url: http://{{ glance_endpoint_host }}:9292 
+glance_admin_url: "{{ glance_internal_url }}"
+glance_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/glance"
 
-# nova_endpoint_host: "{{ hostvars[groups['nova-controller'][0]]|find_ip(management_network) }}"
-# nova_internal_url: http://{{ nova_endpoint_host }}:8774/v2/%(tenant_id)s
-# nova_admin_url: "{{ nova_internal_url }}"
-# nova_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/nova/v2/%(tenant_id)s"
+nova_endpoint_host: "{{ hostvars[groups['nova-controller'][0]]|find_ip(management_network) }}"
+nova_internal_url: http://{{ nova_endpoint_host }}:8774/v2/%(tenant_id)s
+nova_admin_url: "{{ nova_internal_url }}"
+nova_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/nova/v2/%(tenant_id)s"
 
 # ec2_internal_url: http://{{ nova_endpoint_host }}:8773/services/Cloud
 # ec2_admin_url: http://{{ nova_endpoint_host }}:8773/services/Admin
@@ -109,9 +109,9 @@ keystone_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/ke
 # swift_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/swift-mysql-password') }}"
 # swift_identity_password: "{{ lookup('password', inventory_dir + '/credentials/swift-identity-password') }}"
 
-# glance_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/glance-mysql-password')}}"
-# glance_identity_password: "{{ lookup('password', inventory_dir + '/credentials/glance-identity-password') }}"
-# glance_rabbit_password: "{{ lookup('password', inventory_dir + '/credentials/glance-rabbit-password') }}"
+glance_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/glance-mysql-password')}}"
+glance_identity_password: "{{ lookup('password', inventory_dir + '/credentials/glance-identity-password') }}"
+glance_rabbit_password: "{{ lookup('password', inventory_dir + '/credentials/glance-rabbit-password') }}"
 
 # cinder_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/cinder-mysql-password') }}"
 # cinder_identity_password: "{{ lookup('password', inventory_dir + '/credentials/cinder-identity-password') }}"
@@ -123,9 +123,9 @@ neutron_ovs_mysql_password: "{{ lookup('password', inventory_dir + '/credentials
 neutron_ml2_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/neutron-ml2-mysql-password') }}"
 neutron_rabbit_password: "{{ lookup('password', inventory_dir + '/credentials/neutron-rabbit-password') }}"
 
-# nova_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/nova-mysql-password') }}"
-# nova_identity_password: "{{ lookup('password', inventory_dir + '/credentials/nova-identity-password') }}"
-# nova_rabbit_password: "{{ lookup('password', inventory_dir + '/credentials/nova-rabbit-password') }}"
+nova_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/nova-mysql-password') }}"
+nova_identity_password: "{{ lookup('password', inventory_dir + '/credentials/nova-identity-password') }}"
+nova_rabbit_password: "{{ lookup('password', inventory_dir + '/credentials/nova-rabbit-password') }}"
 
 # heat_mysql_password: "{{ lookup('password', inventory_dir + '/credentials/heat-mysql-password') }}"
 # heat_identity_password: "{{ lookup('password', inventory_dir + '/credentials/heat-identity-password') }}"

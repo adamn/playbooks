@@ -10,7 +10,7 @@ openstack: openstack-ansible-modules standard-vms
 	$(ANSIBLE) -i testcases/standard/ansible_hosts openstack.yaml
 
 openstack-single: openstack-ansible-modules single-vms
-	$(ANSIBLE) -i testcases/single/ansible_hosts openstack.yaml
+	$(ANSIBLE) -i inventories/ansible_inventory_single openstack.yaml
 
 openstack-ansible-modules:
 	git submodule init
@@ -29,7 +29,7 @@ demo: openstack-ansible-modules standard-vms openstack
 	$(ANSIBLE) -i testcases/standard/ansible_hosts demo.yaml
 
 single-demo: openstack-ansible-modules single-vms openstack-single
-	$(ANSIBLE) -i testcases/single/ansible_hosts demo.yaml
+	$(ANSIBLE) -i inventories/ansible_inventory_single demo.yaml
 
 destroy:
 	cd testcases/standard; vagrant destroy --force

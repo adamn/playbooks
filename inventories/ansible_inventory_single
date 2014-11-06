@@ -1,14 +1,28 @@
 main1 ansible_ssh_host=10.1.0.4
 
 [all:vars]
-external_ntp_host = uk.pool.ntp.org
 
-management_network = 10.1.0.0/16
-api_network = 10.2.0.0/16
 
 external_network_name = public
+env_name = localhost
+public_domain = 10.3.0.4
+pub_url_proto = http
+# papertrail_min_loglevel = warning
+horizon_min_loglevel = INFO
+
+external_ntp_host = uk.pool.ntp.org
+management_network = 10.1.0.0/16
+api_network = 10.2.0.0/16
+external_network_name = public
+public_web_address = 10.3.0.4
+public_api_address = 10.3.0.4
+# graphite_carbon_udp_endpoint = 127.0.0.1
+# graphite_web_port = 1281
 
 # public_address = dash.kili.io
+
+[openstack-hosts]
+main1
 
 [neutron:vars]
 data_network = 10.3.0.0/16

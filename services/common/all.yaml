@@ -7,6 +7,9 @@
     - openstack
   tasks:
 
+    - name: use juno
+      apt_repository: repo='ppa:ubuntu-cloud-archive/juno-staging'
+
     - name: ensure required base packages are present
       apt: 
         pkg: "{{ item }}" 

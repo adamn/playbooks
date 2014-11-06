@@ -42,15 +42,15 @@
         internal_url: "{{ nova_internal_url }}"
         admin_url: "{{ nova_admin_url }}"
 
-    - name: add ec2 compatibility layer endpoint
-      keystone_service: 
-        endpoint: "{{ keystone_admin_url }}"
-        token: "{{ keystone_admin_token }}"
-        region: "{{ openstack_region }}"
-        name: ec2
-        type: ec2
-        description: "EC2 Compatibility Layer"
-        public_url: "{{ ec2_public_url }}"
-        internal_url: "{{ ec2_internal_url }}"
-        admin_url: "{{ ec2_admin_url }}"
+    # - name: add ec2 compatibility layer endpoint
+    #   keystone_service: 
+    #     endpoint: "{{ keystone_admin_url }}"
+    #     token: "{{ keystone_admin_token }}"
+    #     region: "{{ openstack_region }}"
+    #     name: ec2
+    #     type: ec2
+    #     description: "EC2 Compatibility Layer"
+    #     public_url: "{{ ec2_public_url }}"
+    #     internal_url: "{{ ec2_internal_url }}"
+    #     admin_url: "{{ ec2_admin_url }}"
 
