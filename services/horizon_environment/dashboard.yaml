@@ -44,13 +44,9 @@
         - apache2
 
     - name: ensure required apache2 modules are enabled
-      file:
-        state: link
-        dest: "/etc/apache2/mods-enabled/{{ item }}"
-        src: "/etc/apache2/mods-available/{{ item }}"
-      with_items:
-        - wsgi.conf
-        - wsgi.load
+      apache2_module:
+        state: present
+        name: wsgi
 
     - name: update memcached.conf from template
       template:
