@@ -54,7 +54,6 @@
     # is not permitted for non-admin users. Need to fix neutron_* modules as
     # non-admin *should* be able to create networks, associate floating ips,
     # etc.
-    
     - name: ensure internal network is registered
       neutron_network: 
         auth_url: "{{ keystone_public_url }}"

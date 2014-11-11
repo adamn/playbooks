@@ -1,3 +1,7 @@
+# This repository is public
+
+ALL code in here should be considered safe to be public.  Keys, passwords, etc.. should NEVER be in this repository.
+
 # OpenStack on Ansible with Vagrant
 
 This repository contains script that will deploy OpenStack into Vagrant virtual
@@ -9,20 +13,17 @@ otherwise noted.
 
 You'll need to install:
 
-* [Vagrant](http://vagrantup.com)
-* [Ansible](http://ansible.github.com)
+* [Vagrant](http://vagrantup.com) - For a developer environment only
+* [Ansible](http://ansible.github.com) - Use 1.7 or higher
 * [python-netaddr](https://pypi.python.org/pypi/netaddr/)
 * [python-novaclient](https://pypi.python.org/pypi/python-novaclient) (recommended)
 
-To get started with the development branch of Ansible, install the prerequisites,
+To get started with Ansible, install the prerequisites,
 grab the git repo and source the appropriate file to set your environment
 variables, no other installation is required:
 
-	sudo pip install paramiko PyYAML Jinja2 netaddr python-novaclient
-	git clone git://github.com/ansible/ansible.git
-	cd ./ansible
-	source ./hacking/env-setup
-
+	brew install ansible or sudo apt-get install ansible or sudo pip install ansible
+	sudo pip install netaddr python-novaclient
 
 ## Get an Ubuntu 14.04 (precise) box
 
@@ -35,7 +36,7 @@ Download a 64-bit Ubuntu Vagrant box:
 This repository uses a submodule that contains some custom Ansible modules for
 OpenStack, so there's an extra command required after cloning the repo:
 
-    git clone http://github.com/adamn/playbooks.git
+    git clone http://github.com/packethost/playbooks.git
     cd openstack-ansible
     git submodule update --init
 
@@ -49,26 +50,22 @@ install OpenStack, and attempt to boot a test VM inside of OpenStack.
 If everything works, you should be able to ssh to the instance from any
 of your vagrant hosts:
 
- * username: `cirros`
- * password: `cubswin:)`
+	cd testcases/standard; vagrant ssh compute (for the compute instance)
 
-Note: You may get a "connection refused" when attempting to ssh to the instance.
-It can take several minutes for the ssh server to respond to requests, even
-though the cirros instance has booted and is pingable.
+If you get connection refused, you may want to confirm that your vagrant key is available:
+
+	ssh-add ~/.vagrant.d/insecure_private_key
 
 ## Vagrant hosts
 
 The hosts for the standard configuration are:
 
- * 10.1.0.2 (our cloud controller)
+ * 10.1.0.2 (controller)
  * 10.1.0.3 (compute node #1)
- * 10.1.0.4 (the quantum network host)
- * 10.1.0.5 (the swift storage host)
+ * 10.1.0.4 (neutron host)
+ * 10.1.0.5 (swift storage host)
 
-You should be able to ssh to these VMs (username: `vagrant`, password:
-`vagrant`). You can also authenticate  with the vagrant private key:
-
-`ssh-add ~/.vagrant.d/insecure_private_key`
+You should be able to ssh to these VMs (`vagrant status`). 
 
 ## Interacting with your cloud
 

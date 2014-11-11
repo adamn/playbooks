@@ -14,9 +14,6 @@ apticron_notification_address: "apticron_update_notifications@{{ domain_name }}"
 
 # root_mail_forward: "system_mail@{{ domain_name }}"
 
-keystone_endpoint_host: "{{ hostvars['main1']['host_conf'][env_name]['management_control_network_address'] }}"
-keystone_admin_url: "http://{{ keystone_endpoint_host }}:35357/v2.0"
-keystone_admin_token: "{{ lookup('password', inventory_dir + '/credentials/keystone-admin-token') }}"
 
 # horizon_dashboard_rabbit_password: "{{ lookup('password', inventory_dir + '/credentials/horizon_dashboard_rabbit_password') }}"
 # horizon_dashboard_db_password: "{{ lookup('password', inventory_dir + '/credentials/horizon_dashboard_db_password') }}"
@@ -41,9 +38,6 @@ openstack_region: NY-1a
 global_log_verbose: False
 global_log_debug: False
 
-openstack_repositories: 
-  - cloud-archive:juno-staging
-
 ntp_host: "{{ hostvars[groups['ntpserver'][0]]|find_ip(management_network) }}"
 
 graphite_basic_auth_password: "{{ lookup('password', inventory_dir + '/credentials/graphite-basic-auth-password') }}"
@@ -58,38 +52,29 @@ rabbit_host: "{{ hostvars[groups['rabbitmq'][0]]|find_ip(management_network) }}"
 keystone_endpoint_host: "{{ hostvars[groups['keystone'][0]]|find_ip(management_network) }}"
 keystone_internal_url: http://{{ keystone_endpoint_host }}:5000/v2.0
 keystone_admin_url: http://{{ keystone_endpoint_host }}:35357/v2.0
-keystone_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/keystone/v2.0"
+keystone_public_url: "{{ pub_url_proto }}://{{ public_api_address }}:5000/v2.0"
 
 keystone_admin_token: "{{ lookup('password', inventory_dir + '/credentials/keystone-admin-token') }}"
 
 glance_endpoint_host: "{{ hostvars[groups['glance'][0]]|find_ip(management_network) }}"
 glance_internal_url: http://{{ glance_endpoint_host }}:9292 
 glance_admin_url: "{{ glance_internal_url }}"
-glance_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/glance"
+glance_public_url: "{{ pub_url_proto }}://{{ public_api_address }}:9292"
 
 nova_endpoint_host: "{{ hostvars[groups['nova-controller'][0]]|find_ip(management_network) }}"
 nova_internal_url: http://{{ nova_endpoint_host }}:8774/v2/%(tenant_id)s
 nova_admin_url: "{{ nova_internal_url }}"
-nova_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/nova/v2/%(tenant_id)s"
-
-# ec2_internal_url: http://{{ nova_endpoint_host }}:8773/services/Cloud
-# ec2_admin_url: http://{{ nova_endpoint_host }}:8773/services/Admin
-# ec2_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/ec2/services/Cloud"
+nova_public_url: "{{ pub_url_proto }}://{{ public_api_address }}:8774/v2/%(tenant_id)s"
 
 neutron_endpoint_host: "{{ hostvars[groups['neutron-api'][0]]|find_ip(management_network) }}"
 neutron_internal_url: http://{{ neutron_endpoint_host }}:9696
 neutron_admin_url: "{{ neutron_internal_url }}"
-neutron_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/neutron"
+neutron_public_url: "{{ pub_url_proto }}://{{ public_api_address }}:9696"
 
 # swift_endpoint_host: "{{ hostvars[groups['swift-proxy'][0]]|find_ip(management_network) }}"
 # swift_internal_url: http://{{ swift_endpoint_host }}:8888/v1/AUTH_%(tenant_id)s
 # swift_admin_url: http://{{ swift_endpoint_host }}:8888/v1
 # swift_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/swift/v1/AUTH_%(tenant_id)s"
-
-# cinder_endpoint_host: "{{ hostvars[groups['cinder-api'][0]]|find_ip(management_network) }}"
-# cinder_internal_url: http://{{ cinder_endpoint_host }}:8776/v1/%(tenant_id)s
-# cinder_admin_url: "{{ cinder_internal_url }}"
-# cinder_public_url: "{{ pub_url_proto }}://{{ public_api_address }}/v1/cinder/%(tenant_id)s"
 
 # cinderv2_internal_url: http://{{ cinder_endpoint_host }}:8776/v2/%(tenant_id)s
 # cinderv2_admin_url: "{{ cinderv2_internal_url }}"

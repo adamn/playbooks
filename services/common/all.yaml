@@ -8,7 +8,8 @@
   tasks:
 
     - name: use juno
-      apt_repository: repo='ppa:ubuntu-cloud-archive/juno-staging'
+      # Ansible 1.7 does not support cloud-archive:juno format https://github.com/ansible/ansible-modules-core/issues/292
+      apt_repository: repo='deb http://ubuntu-cloud.archive.canonical.com/ubuntu trusty-updates/juno main'
 
     - name: ensure required base packages are present
       apt: 

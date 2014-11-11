@@ -1,5 +1,6 @@
 # admin-host ansible_ssh_host=192.168.11.201
-main1 ansible_ssh_host=198.16.4.202
+#main1 ansible_ssh_host=198.16.4.202
+main1 ansible_ssh_host=packet_ansible
 
 [all:vars]
 env_name = staging

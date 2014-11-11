@@ -43,6 +43,7 @@
       template: 
         src: templates/etc/{{ component }}/{{ item }}
         dest: /etc/{{ component }}/{{ item }}
+        backup: yes
         owner: "{{ component }}"
         group: "{{ component }}"
         mode: 0640
