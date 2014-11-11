@@ -1,4 +1,4 @@
-# admin-host ansible_ssh_host=192.168.11.201
+admin-host ansible_ssh_host=packet_ansible
 #main1 ansible_ssh_host=198.16.4.202
 main1 ansible_ssh_host=packet_ansible
 
