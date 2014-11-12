@@ -52,7 +52,7 @@
     - name: clone deployment scripts repo
       sudo_user: "{{ deployment_user }}"
       git:
-        repo: git@github.com:kili/deployment_scripts
+        repo: git@github.com:packethost/deployment_scripts
         accept_hostkey: yes
         dest: /home/deployment/scripts
         update: yes
