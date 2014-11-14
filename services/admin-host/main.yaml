@@ -32,7 +32,7 @@
       user:
         name: "{{ deployment_user }}"
         comment: "Deploy User" 
-        groups: "{{ deploy }},wheel"
+        append: "wheel"
         shell: /bin/bash
 
     - name: ensure our public keys are in authorized_keys
