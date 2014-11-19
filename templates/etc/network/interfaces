@@ -1,188 +1,31 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
 auto lo
 iface lo inet loopback
 
-auto {{ host_conf[env_name].management_control_network_port }}
-iface {{ host_conf[env_name].management_control_network_port }} inet static
-  address {{ host_conf[env_name].management_control_network_address }}
-  network {{ host_conf[env_name].management_control_network }}
-  netmask {{ host_conf[env_name].management_control_network_mask }}
-  broadcast {{ host_conf[env_name].management_control_network_bcast }}
+# The primary network interface
+# TODO: Use vars from interfaces.bak
+auto p1p1
+iface p1p1 inet static
+  address 198.16.4.202
+  netmask 255.255.255.252
+  network 198.16.4.200
+  broadcast 198.16.4.203
+  gateway 198.16.4.201
+  # dns-* options are implemented by the resolvconf package, if installed
+  dns-nameservers 8.8.8.8
+  dns-search lab1.blade3.packethost.net
 
-auto {{ host_conf[env_name].management_network_network_port }}
-iface {{ host_conf[env_name].management_network_network_port }} inet static
-  address {{ host_conf[env_name].management_network_network_address }}
-  network {{ host_conf[env_name].management_network_network }}
-  netmask {{ host_conf[env_name].management_network_network_mask }}
-  broadcast {{ host_conf[env_name].management_network_network_bcast }}
+auto br-p1p2
+iface br-p1p2 inet static
+  address 192.168.1.3
+  netmask 255.255.255.0
+  network 192.168.1.0
+  broadcast 192.168.1.255
 
-auto {{ host_conf[env_name].management_compute_network_port }}
-iface {{ host_conf[env_name].management_compute_network_port }} inet static
-  address {{ host_conf[env_name].management_compute_network_address }}
-  network {{ host_conf[env_name].management_compute_network }}
-  netmask {{ host_conf[env_name].management_compute_network_mask }}
-  broadcast {{ host_conf[env_name].management_compute_network_bcast }}
-
-auto {{ host_conf[env_name].management_storage_network_port }}
-iface {{ host_conf[env_name].management_storage_network_port }} inet static
-  address {{ host_conf[env_name].management_storage_network_address }}
-  network {{ host_conf[env_name].management_storage_network }}
-  netmask {{ host_conf[env_name].management_storage_network_mask }}
-  broadcast {{ host_conf[env_name].management_storage_network_bcast }}
-
-auto {{ host_conf[env_name].api_control_network_port }}
-iface {{ host_conf[env_name].api_control_network_port }} inet static
-  address {{ host_conf[env_name].api_control_network_address }}
-  network {{ host_conf[env_name].api_control_network }}
-  netmask {{ host_conf[env_name].api_control_network_mask }}
-  broadcast {{ host_conf[env_name].api_control_network_bcast }}
-
-auto {{ host_conf[env_name].api_network_network_port }}
-iface {{ host_conf[env_name].api_network_network_port }} inet static
-  address {{ host_conf[env_name].api_network_network_address }}
-  network {{ host_conf[env_name].api_network_network }}
-  netmask {{ host_conf[env_name].api_network_network_mask }}
-  broadcast {{ host_conf[env_name].api_network_network_bcast }}
-
-auto {{ host_conf[env_name].api_compute_network_port }}
-iface {{ host_conf[env_name].api_compute_network_port }} inet static
-  address {{ host_conf[env_name].api_compute_network_address }}
-  network {{ host_conf[env_name].api_compute_network }}
-  netmask {{ host_conf[env_name].api_compute_network_mask }}
-  broadcast {{ host_conf[env_name].api_compute_network_bcast }}
-
-auto {{ host_conf[env_name].api_storage_network_port }}
-iface {{ host_conf[env_name].api_storage_network_port }} inet static
-  address {{ host_conf[env_name].api_storage_network_address }}
-  network {{ host_conf[env_name].api_storage_network }}
-  netmask {{ host_conf[env_name].api_storage_network_mask }}
-  broadcast {{ host_conf[env_name].api_storage_network_bcast }}
-
-auto {{ host_conf[env_name].data_control_network_port }}
-iface {{ host_conf[env_name].data_control_network_port }} inet static
-  address {{ host_conf[env_name].data_control_network_address }}
-  network {{ host_conf[env_name].data_control_network }}
-  netmask {{ host_conf[env_name].data_control_network_mask }}
-  broadcast {{ host_conf[env_name].data_control_network_bcast }}
-
-auto {{ host_conf[env_name].data_network_network_port }}
-iface {{ host_conf[env_name].data_network_network_port }} inet static
-  address {{ host_conf[env_name].data_network_network_address }}
-  network {{ host_conf[env_name].data_network_network }}
-  netmask {{ host_conf[env_name].data_network_network_mask }}
-  broadcast {{ host_conf[env_name].data_network_network_bcast }}
-
-auto {{ host_conf[env_name].data_compute_network_port }}
-iface {{ host_conf[env_name].data_compute_network_port }} inet static
-  address {{ host_conf[env_name].data_compute_network_address }}
-  network {{ host_conf[env_name].data_compute_network }}
-  netmask {{ host_conf[env_name].data_compute_network_mask }}
-  broadcast {{ host_conf[env_name].data_compute_network_bcast }}
-
-auto {{ host_conf[env_name].data_storage_network_port }}
-iface {{ host_conf[env_name].data_storage_network_port }} inet static
-  address {{ host_conf[env_name].data_storage_network_address }}
-  network {{ host_conf[env_name].data_storage_network }}
-  netmask {{ host_conf[env_name].data_storage_network_mask }}
-  broadcast {{ host_conf[env_name].data_storage_network_bcast }}
-
-auto {{ host_conf[env_name].external_control_network_port }}
-iface {{ host_conf[env_name].external_control_network_port }} inet static
-  address {{ host_conf[env_name].external_control_network_address }}
-  network {{ host_conf[env_name].external_control_network }}
-  netmask {{ host_conf[env_name].external_control_network_mask }}
-  broadcast {{ host_conf[env_name].external_control_network_bcast }}
-
-auto {{ host_conf[env_name].external_network_network_port }}
-iface {{ host_conf[env_name].external_network_network_port }} inet static
-  address {{ host_conf[env_name].external_network_network_address }}
-  network {{ host_conf[env_name].external_network_network }}
-  netmask {{ host_conf[env_name].external_network_network_mask }}
-  broadcast {{ host_conf[env_name].external_network_network_bcast }}
-
-auto {{ host_conf[env_name].external_compute_network_port }}
-iface {{ host_conf[env_name].external_compute_network_port }} inet static
-  address {{ host_conf[env_name].external_compute_network_address }}
-  network {{ host_conf[env_name].external_compute_network }}
-  netmask {{ host_conf[env_name].external_compute_network_mask }}
-  broadcast {{ host_conf[env_name].external_compute_network_bcast }}
-
-auto {{ host_conf[env_name].external_storage_network_port }}
-iface {{ host_conf[env_name].external_storage_network_port }} inet static
-  address {{ host_conf[env_name].external_storage_network_address }}
-  network {{ host_conf[env_name].external_storage_network }}
-  netmask {{ host_conf[env_name].external_storage_network_mask }}
-  broadcast {{ host_conf[env_name].external_storage_network_bcast }}
-
-auto {{ host_conf[env_name].storage_control_network_port }}
-iface {{ host_conf[env_name].storage_control_network_port }} inet static
-  address {{ host_conf[env_name].storage_control_network_address }}
-  network {{ host_conf[env_name].storage_control_network }}
-  netmask {{ host_conf[env_name].storage_control_network_mask }}
-  broadcast {{ host_conf[env_name].storage_control_network_bcast }}
-
-auto {{ host_conf[env_name].storage_network_network_port }}
-iface {{ host_conf[env_name].storage_network_network_port }} inet static
-  address {{ host_conf[env_name].storage_network_network_address }}
-  network {{ host_conf[env_name].storage_network_network }}
-  netmask {{ host_conf[env_name].storage_network_network_mask }}
-  broadcast {{ host_conf[env_name].storage_network_network_bcast }}
-
-auto {{ host_conf[env_name].storage_compute_network_port }}
-iface {{ host_conf[env_name].storage_compute_network_port }} inet static
-  address {{ host_conf[env_name].storage_compute_network_address }}
-  network {{ host_conf[env_name].storage_compute_network }}
-  netmask {{ host_conf[env_name].storage_compute_network_mask }}
-  broadcast {{ host_conf[env_name].storage_compute_network_bcast }}
-
-auto {{ host_conf[env_name].storage_storage_network_port }}
-iface {{ host_conf[env_name].storage_storage_network_port }} inet static
-  address {{ host_conf[env_name].storage_storage_network_address }}
-  network {{ host_conf[env_name].storage_storage_network }}
-  netmask {{ host_conf[env_name].storage_storage_network_mask }}
-  broadcast {{ host_conf[env_name].storage_storage_network_bcast }}
-
-auto {{ host_conf[env_name].compute_control_network_port }}
-iface {{ host_conf[env_name].compute_control_network_port }} inet static
-  address {{ host_conf[env_name].compute_control_network_address }}
-  network {{ host_conf[env_name].compute_control_network }}
-  netmask {{ host_conf[env_name].compute_control_network_mask }}
-  broadcast {{ host_conf[env_name].compute_control_network_bcast }}
-
-auto {{ host_conf[env_name].compute_network_network_port }}
-iface {{ host_conf[env_name].compute_network_network_port }} inet static
-  address {{ host_conf[env_name].compute_network_network_address }}
-  network {{ host_conf[env_name].compute_network_network }}
-  netmask {{ host_conf[env_name].compute_network_network_mask }}
-  broadcast {{ host_conf[env_name].compute_network_network_bcast }}
-
-auto {{ host_conf[env_name].compute_compute_network_port }}
-iface {{ host_conf[env_name].compute_compute_network_port }} inet static
-  address {{ host_conf[env_name].compute_compute_network_address }}
-  network {{ host_conf[env_name].compute_compute_network }}
-  netmask {{ host_conf[env_name].compute_compute_network_mask }}
-  broadcast {{ host_conf[env_name].compute_compute_network_bcast }}
-
-auto {{ host_conf[env_name].compute_storage_network_port }}
-iface {{ host_conf[env_name].compute_storage_network_port }} inet static
-  address {{ host_conf[env_name].compute_storage_network_address }}
-  network {{ host_conf[env_name].compute_storage_network }}
-  netmask {{ host_conf[env_name].compute_storage_network_mask }}
-  broadcast {{ host_conf[env_name].compute_storage_network_bcast }}
-
-#public
-auto {{ host_conf[env_name].public_network_port }}
-iface {{ host_conf[env_name].public_network_port }} inet static
-  address {{ host_conf[env_name].public_network_address }}
-  network {{ host_conf[env_name].public_network }}
-  netmask {{ host_conf[env_name].public_network_mask }}
-  broadcast {{ host_conf[env_name].public_network_bcast }}
-  gateway {{ host_conf[env_name].public_network_gw }}
-  dns-nameservers {{ host_conf[env_name].public_dns_nameservers }}
-
-#public api
-auto {{ host_conf[env_name].pubapi_network_port }}
-iface {{ host_conf[env_name].pubapi_network_port }} inet static
-  address {{ host_conf[env_name].pubapi_network_address }}
-  network {{ host_conf[env_name].pubapi_network }}
-  netmask {{ host_conf[env_name].pubapi_network_mask }}
-  broadcast {{ host_conf[env_name].pubapi_network_bcast }}
+auto p1p2
+iface p1p2 inet manual
+ up ifconfig $IFACE 0.0.0.0 up
+ down ifconfig $IFACE down
