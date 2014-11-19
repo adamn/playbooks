@@ -17,6 +17,26 @@ iface {{ host_conf[env_name].public_network_port }} inet static
   dns-nameservers {{ host_conf[env_name].public_dns_nameservers }}
   dns-search {{ host_conf[env_name].public_dns_search }}
 
+auto {{ host_conf[env_name].management_control_network_port }}
+iface {{ host_conf[env_name].management_control_network_port }} inet static
+  address {{ host_conf[env_name].management_control_network_address }}
+  netmask {{ host_conf[env_name].management_control_network_mask }}
+  network {{ host_conf[env_name].management_control_network }}
+  broadcast {{ host_conf[env_name].management_control_network_bcast }}
+  gateway {{ host_conf[env_name].management_control_network_gw }}
+  # dns-* options are implemented by the resolvconf package, if installed
+  dns-nameservers {{ host_conf[env_name].public_dns_nameservers }}
+
+auto {{ host_conf[env_name].management_network_network_port }}
+iface {{ host_conf[env_name].management_network_network_port }} inet static
+  address {{ host_conf[env_name].management_network_network_address }}
+  netmask {{ host_conf[env_name].management_network_network_mask }}
+  network {{ host_conf[env_name].management_network_network }}
+  broadcast {{ host_conf[env_name].management_network_network_bcast }}
+  gateway {{ host_conf[env_name].management_network_network_gw }}
+  # dns-* options are implemented by the resolvconf package, if installed
+  dns-nameservers {{ host_conf[env_name].public_dns_nameservers }}
+
 auto br-p1p2
 iface br-p1p2 inet static
   address 192.168.1.3

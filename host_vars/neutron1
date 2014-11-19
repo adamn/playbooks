@@ -174,7 +174,7 @@ host_conf:
   #   compute_storage_network_address: 10.6.0.5
 
   staging:
-    public_network_port: p1p1
+    public_network_port: p1p1:0
     public_network_address: 198.16.4.202
     public_network_mask: 255.255.255.252
     public_network: 198.16.4.200
@@ -189,17 +189,17 @@ host_conf:
     # pubapi_network_bcast: 192.168.15.255
     # pubapi_network_address: 192.168.11.6
 
-    # management_control_network_port: eth0:0
-    # management_control_network: 10.186.43.0
-    # management_control_network_mask: 255.255.255.0
-    # management_control_network_bcast: 10.186.43.255
-    # management_control_network_address: 10.186.43.2
+    management_control_network_port: p1p1:1
+    management_control_network: 10.200.0.0
+    management_control_network_mask: 255.255.0.0
+    management_control_network_bcast: 10.200.255.255
+    management_control_network_address: 10.200.0.1
 
-    # management_network_network_port: eth0:1
-    # management_network_network: 10.186.43.0
-    # management_network_network_mask: 255.255.255.0
-    # management_network_network_bcast: 10.186.43.255
-    # management_network_network_address: 127.0.0.1
+    management_network_network_port: p1p1:2
+    management_network_network: 10.200.0.0
+    management_network_network_mask: 255.255.0.0
+    management_network_network_bcast: 10.200.255.255
+    management_network_network_address: 10.200.0.2
 
     # management_compute_network_port: eth0:2
     # management_compute_network: 10.186.43.0
