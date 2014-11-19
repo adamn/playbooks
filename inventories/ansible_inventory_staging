@@ -1,27 +1,25 @@
-admin-host ansible_connection=local #ansible_ssh_host=packet_ansible
-#main1 ansible_ssh_host=198.16.4.202
-main1 ansible_ssh_host=packet_ansible
+admin-host ansible_connection=local
+neutron1 ansible_ssh_host=packet_neutron
 
 [all:vars]
 env_name = staging
 api_network = 10.2.0.0/16
-public_domain = staging.kili.io
+public_domain = staging.packethost.net
 pub_url_proto = http
 papertrail_min_loglevel = warning
 horizon_min_loglevel = INFO
 
-external_ntp_host = uk.pool.ntp.org
+external_ntp_host = clock.nyc.he.net
 management_network = 10.186.43.0/16
-api_network = 10.2.0.0/16
 external_network_name = public
-public_web_address = staging.kili.io
-public_api_address = api.staging.kili.io
+public_web_address = staging.packethost.net # http://198.16.4.202/
+public_api_address = api.staging.packethost.net
 
 [openstack-hosts]
-main1
+neutron1
 
 # [horizon-hosts]
-# main1
+# neutron1
 
 # [frontend_nginx:children]
 # webif_nginx
@@ -35,8 +33,8 @@ main1
 
 [neutron:vars]
 data_network = 10.3.0.0/16
-external_network = 192.168.0.0/20
-external_network_gateway_ip = 192.168.0.1
+external_network = 198.16.4.200/30
+external_network_gateway_ip = 198.16.4.201
 external_network_dns_nameservers = 8.8.8.8
 external_network_allocation_pool_start = 192.168.11.100
 external_network_allocation_pool_end = 192.168.11.200
@@ -46,19 +44,19 @@ external_network_allocation_pool_end = 192.168.11.200
 # replication_network = 10.6.0.0/16
 
 [mysql]
-main1
+neutron1
 
 # [mongodb]
 # main1
 
-[rabbitmq]
-main1
+#[rabbitmq]
+#main1
 
 [ntpserver]
-main1
+neutron1
 
 [keystone]
-main1
+neutron1
 
 # [glance]
 # main1
@@ -79,10 +77,10 @@ neutron-network
 # nova-compute
 
 [neutron-api]
-main1
+neutron1
 
 [neutron-network]
-main1
+neutron1
 
 # [swift:children]
 # swift-proxy
@@ -109,7 +107,7 @@ main1
 # main1
 
 # [dashboard]
-# main1
+# neutron1
 
 # [heat]
 # main1
