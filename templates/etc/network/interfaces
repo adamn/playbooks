@@ -23,7 +23,6 @@ iface {{ host_conf[env_name].management_control_network_port }} inet static
   netmask {{ host_conf[env_name].management_control_network_mask }}
   network {{ host_conf[env_name].management_control_network }}
   broadcast {{ host_conf[env_name].management_control_network_bcast }}
-  gateway {{ host_conf[env_name].management_control_network_gw }}
   # dns-* options are implemented by the resolvconf package, if installed
   dns-nameservers {{ host_conf[env_name].public_dns_nameservers }}
 
@@ -33,7 +32,6 @@ iface {{ host_conf[env_name].management_network_network_port }} inet static
   netmask {{ host_conf[env_name].management_network_network_mask }}
   network {{ host_conf[env_name].management_network_network }}
   broadcast {{ host_conf[env_name].management_network_network_bcast }}
-  gateway {{ host_conf[env_name].management_network_network_gw }}
   # dns-* options are implemented by the resolvconf package, if installed
   dns-nameservers {{ host_conf[env_name].public_dns_nameservers }}
 
