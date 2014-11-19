@@ -199,7 +199,7 @@ host_conf:
     # management_network_network: 10.186.43.0
     # management_network_network_mask: 255.255.255.0
     # management_network_network_bcast: 10.186.43.255
-    management_network_network_address: 127.0.0.1
+    # management_network_network_address: 127.0.0.1
 
     # management_compute_network_port: eth0:2
     # management_compute_network: 10.186.43.0

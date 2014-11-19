@@ -10,7 +10,7 @@ papertrail_min_loglevel = warning
 horizon_min_loglevel = INFO
 
 external_ntp_host = clock.nyc.he.net
-management_network = 10.186.43.0/16
+management_network = 127.0.0.1/32
 external_network_name = public
 public_web_address = staging.packethost.net # http://198.16.4.202/
 public_api_address = api.staging.packethost.net
