@@ -9,6 +9,8 @@
     - name: use juno
       # Ansible 1.7 does not support cloud-archive:juno format https://github.com/ansible/ansible-modules-core/issues/292
       apt_repository: repo='deb http://ubuntu-cloud.archive.canonical.com/ubuntu trusty-updates/juno main'
+      
+    - name: print system information
       debug: 
         msg: System {{ inventory_hostname }} has ipv4 addresses {{ ansible_all_ipv4_addresses }}
 
