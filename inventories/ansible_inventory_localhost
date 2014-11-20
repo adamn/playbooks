@@ -1,6 +1,4 @@
-# admin-host ansible_ssh_host=10.1.0.3 #192.168.11.201
-# main1 ansible_ssh_host=10.0.1.222
-main1 ansible_ssh_host=10.1.0.3
+main1 ansible_ssh_host=127.0.0.1 ansible_ssh_user=vagrant ansible_ssh_port=2222
 
 [all:vars]
 env_name = localhost

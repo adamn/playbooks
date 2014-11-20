@@ -1,5 +1,5 @@
 admin-host ansible_connection=local
-neutron1 ansible_ssh_host=198.16.4.202 ansible_ssh_user=packet
+main1 ansible_ssh_host=198.16.4.202 ansible_ssh_user=packet
 
 [all:vars]
 env_name = staging
@@ -16,10 +16,10 @@ public_web_address = staging.packethost.net # http://198.16.4.202/
 public_api_address = api.staging.packethost.net
 
 [openstack-hosts]
-neutron1
+main1
 
 # [horizon-hosts]
-# neutron1
+# main1
 
 # [frontend_nginx:children]
 # webif_nginx
@@ -44,7 +44,7 @@ external_network_allocation_pool_end = 192.168.11.200
 # replication_network = 10.6.0.0/16
 
 [mysql]
-neutron1
+main1
 
 # [mongodb]
 # main1
@@ -53,10 +53,10 @@ neutron1
 #main1
 
 [ntpserver]
-neutron1
+main1
 
 [keystone]
-neutron1
+main1
 
 # [glance]
 # main1
@@ -77,10 +77,10 @@ neutron-network
 # nova-compute
 
 [neutron-api]
-neutron1
+main1
 
 [neutron-network]
-neutron1
+main1
 
 # [swift:children]
 # swift-proxy
@@ -107,7 +107,7 @@ neutron1
 # main1
 
 # [dashboard]
-# neutron1
+# main1
 
 # [heat]
 # main1
