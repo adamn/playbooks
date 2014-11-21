@@ -3,3 +3,4 @@
 credentials
 vms
 testcases/standard/.vagrant
+testcases/single/.vagrant
