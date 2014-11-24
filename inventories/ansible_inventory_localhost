@@ -9,7 +9,7 @@ pub_url_proto = http
 horizon_min_loglevel = INFO
 
 external_ntp_host = uk.pool.ntp.org
-management_network = 10.0.1.0/24
+management_network = 10.1.0.0/16
 api_network = 10.2.0.0/16
 external_network_name = public
 public_web_address = 10.0.1.222
@@ -41,11 +41,11 @@ main1
 
 [neutron:vars]
 data_network = 10.3.0.0/16
-external_network = 10.0.1.0/24
-external_network_gateway_ip = 10.0.2.2
+external_network = 10.4.0.0/16
+external_network_gateway_ip = 10.4.1.1
 external_network_dns_nameservers = 8.8.8.8
-external_network_allocation_pool_start = 10.0.1.230
-external_network_allocation_pool_end = 10.0.1.240
+external_network_allocation_pool_start = 10.4.1.230
+external_network_allocation_pool_end = 10.4.1.240
 
 # [swift:vars]
 # storage_network = 10.5.0.0/16

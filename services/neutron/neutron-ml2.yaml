@@ -49,7 +49,8 @@
     - name: ensure {{ component }}-{{ subcomponent }} packages are installed
       apt: 
         pkg: "{{ item }}"
-        state: latest 
+        state: latest
+        force: yes
         update_cache: yes 
         cache_valid_time: 600
       with_items: packages
