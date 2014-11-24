@@ -3,7 +3,7 @@ main1 ansible_ssh_host=198.16.4.202 ansible_ssh_user=packet
 
 [all:vars]
 env_name = staging
-api_network = 10.2.0.0/16
+api_network = 198.16.4.200/30
 public_domain = staging.packethost.net
 pub_url_proto = http
 papertrail_min_loglevel = warning
@@ -32,12 +32,12 @@ main1
 # main1
 
 [neutron:vars]
-data_network = 10.3.0.0/16
+data_network = 198.16.4.200/30
 external_network = 198.16.4.200/30
-external_network_gateway_ip = 198.16.4.201
+external_network_gateway_ip = 198.16.4.200/30
 external_network_dns_nameservers = 8.8.8.8
-external_network_allocation_pool_start = 192.168.11.100
-external_network_allocation_pool_end = 192.168.11.200
+external_network_allocation_pool_start = 198.16.4.202
+external_network_allocation_pool_end = 198.16.4.202
 
 # [swift:vars]
 # storage_network = 10.5.0.0/16
