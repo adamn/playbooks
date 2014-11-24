@@ -191,16 +191,16 @@ host_conf:
     # pubapi_network_address: 192.168.11.6
 
     management_control_network_port: p1p1:1
-    management_control_network: 10.200.0.0
-    management_control_network_mask: 255.255.0.0
-    management_control_network_bcast: 10.200.255.255
-    management_control_network_address: 10.200.0.1
+    management_control_network: 10.0.2.0
+    management_control_network_mask: 255.255.255.0
+    management_control_network_bcast: 10.0.2.255
+    management_control_network_address: 10.0.2.222
 
     management_network_network_port: p1p1:2
-    management_network_network: 10.200.0.0
-    management_network_network_mask: 255.255.0.0
-    management_network_network_bcast: 10.200.255.255
-    management_network_network_address: 10.200.0.2
+    management_network_network: 10.0.2.0
+    management_network_network_mask: 255.255.255.0
+    management_network_network_bcast: 10.0.2.255
+    management_network_network_address: 10.0.2.223
 
     # management_compute_network_port: eth0:2
     # management_compute_network: 10.186.43.0

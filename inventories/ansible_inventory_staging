@@ -3,14 +3,15 @@ main1 ansible_ssh_host=198.16.4.202 ansible_ssh_user=packet
 
 [all:vars]
 env_name = staging
-api_network = 198.16.4.200/30
+api_network = 10.0.2.0/24
 public_domain = staging.packethost.net
 pub_url_proto = http
 papertrail_min_loglevel = warning
 horizon_min_loglevel = INFO
 
 external_ntp_host = clock.nyc.he.net
-management_network = 10.200.0.0/16
+management_network = 10.1.0.0/16
+api_network = 10.2.0.0/16
 external_network_name = public
 public_web_address = staging.packethost.net # http://198.16.4.202/
 public_api_address = api.staging.packethost.net
@@ -32,12 +33,12 @@ main1
 # main1
 
 [neutron:vars]
-data_network = 198.16.4.200/30
-external_network = 198.16.4.200/30
-external_network_gateway_ip = 198.16.4.200/30
+data_network = 10.3.0.0/16
+external_network = 10.4.0.0/16
+external_network_gateway_ip = 10.4.1.1
 external_network_dns_nameservers = 8.8.8.8
-external_network_allocation_pool_start = 198.16.4.202
-external_network_allocation_pool_end = 198.16.4.202
+external_network_allocation_pool_start = 10.4.1.230
+external_network_allocation_pool_end = 10.4.1.240
 
 # [swift:vars]
 # storage_network = 10.5.0.0/16
